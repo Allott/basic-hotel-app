@@ -3,9 +3,36 @@
         "id": 1,
         "name": "Iberostar Grand Salome",
         "location": "Costa Adeje, Tenerife",
-        "image": "/...",
+        "image": {
+            "src": "/hotel/hotel-image-1.png",
+            "alt": "Hotel Image"
+        },
         "rating": 5,
         "price": 1136.50,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget ultricies aliquam, nunc nisl aliquet nunc, quis"
+    },
+    {
+        "id": 2,
+        "name": "Aguamarina Golf Hotel",
+        "location": "Costa Adeje, Tenerife",
+        "image": {
+            "src": "/hotel/hotel-image-2.png",
+            "alt": "Hotel Image"
+        },
+        "rating": 4,
+        "price": 696.80,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget ultricies aliquam, nunc nisl aliquet nunc, quis"
+    },
+    {
+        "id": 3,
+        "name": "Las Piramides Resort",
+        "location": "Costa Adeje, Tenerife",
+        "image": {
+            "src": "/hotel/hotel-image-3.png",
+            "alt": "Hotel Image"
+        },
+        "rating": 3,
+        "price": 499.99,
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget ultricies aliquam, nunc nisl aliquet nunc, quis"
     }
 ]
