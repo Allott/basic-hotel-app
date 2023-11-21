@@ -22,7 +22,7 @@ export default function Home() {
           fill
         />
       </div>
-      <div className='flex flex-col justify-center max-h-screen p-16 sm:space-x-10 sm:flex-row'>
+      <div className='flex flex-col justify-center max-h-screen p-16 md:space-x-10 md:flex-row'>
         <div className='flex flex-col mb-5 space-y-1'>
           <SortButton 
             label='sort alphabetically'
@@ -44,7 +44,7 @@ export default function Home() {
             startAscending={false}
           />
         </div>
-       <div className='flex flex-col max-h-full space-y-5 overflow-scroll'>
+       <div className='flex flex-col max-h-full pr-1 space-y-5 overflow-scroll'>
           {
             sortedHotels.map((hotel)=>(
               <HotelCard key={hotel.id} {...hotel} />
