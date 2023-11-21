@@ -13,52 +13,59 @@ describe('Index', () => {
         expect(screen.getByText(hotelData[2].name)).toBeInTheDocument();
 
     });
-    it('should sort by name', () => {
+    it('should sort by name', async () => {
         render(<Index />);
         const alpha = screen.getByText(/alphabetically/);
         expect(alpha).toBeInTheDocument();
         console.log(screen.getAllByRole('heading')[0])
         expect(screen.getAllByRole('heading')[0].textContent).toBe('Aguamarina Golf Hotel');
         userEvent.click(alpha);
-        waitFor(() => {
+        await waitFor(() => {
             expect(screen.getAllByRole('heading')[0].textContent).toBe('Las Piramides Resort');
         });
     });
-    it('should sort by price', () => {
+    it('should sort by price', async () => {
         render(<Index />);
         const price = screen.getByText(/price/);
         expect(price).toBeInTheDocument();
         expect(screen.getAllByRole('heading')[0].textContent).toBe('Aguamarina Golf Hotel');
         userEvent.click(price);
-        waitFor(() => {
+        await waitFor(() => {
             expect(screen.getAllByRole('heading')[0].textContent).toBe('Las Piramides Resort');
         });
         userEvent.click(price);
-        waitFor(() => {
+        await waitFor(() => {
             expect(screen.getAllByRole('heading')[0].textContent).toBe('Iberostar Grand Salome');
         });
     });
-    it('should sort by star rating', () => {
+    it('should sort by star rating', async () => {
         render(<Index />);
         const star = screen.getByText(/star rating/);
         expect(star).toBeInTheDocument();
-
         expect(screen.getAllByRole('heading')[0].textContent).toBe('Aguamarina Golf Hotel');
         userEvent.click(star);
-        waitFor(() => {
-            expect(screen.getAllByRole('heading')[0].textContent).toBe('Las Piramides Resort');
-        });
-        userEvent.click(star);
-        waitFor(() => {
+        await waitFor(() => {
             expect(screen.getAllByRole('heading')[0].textContent).toBe('Iberostar Grand Salome');
         });
-
+        userEvent.click(star);
+        await waitFor(() => {
+            expect(screen.getAllByRole('heading')[0].textContent).toBe('Las Piramides Resort');
+        });
     });
-    it('should show description on click', () => {
+    it('should show description on click', async () => {
         render(<Index />);
-        const description = screen.getByAllText(/Read more/);
+        const description = screen.getAllByText(/Read more/);
         expect(description.length).toBe(3);
-        // click
-        // check description is shown
+        userEvent.click(description[0]);
+        await waitFor(() => {
+            expect(screen.getByText(/Read less/));
+        });
+        expect(screen.getByText(/Overview/)).toBeInTheDocument();
+        expect(screen.getByText(/Lorem ipsum/)).toBeInTheDocument();
+        expect(screen.getAllByText(/Read more/).length).toBe(2);
+        userEvent.click(screen.getByText(/Read less/));
+        await waitFor(() => {
+            expect(screen.getAllByText(/Read more/).length).toBe(3);
+        });
     });
 });
