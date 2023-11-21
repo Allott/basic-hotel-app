@@ -4,6 +4,8 @@ import { screen, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import hotelData from './constants/hotel-data';
  
+// usually I would mock the API test data
+// I guess we will use 'live' data for this example test
 
 describe('Index', () => {
     it('should render all hotels', () => {

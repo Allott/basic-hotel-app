@@ -12,7 +12,7 @@ const SortButton = ({label, sortName, sortValue, setSortValue, startAscending = 
         <button 
             className={
                 cn(
-                    'p-2 w-full sm:w-52', 
+                    'p-2 w-full md:w-52', 
                     {'bg-blue-800 text-white hover:bg-yellow-300 hover:text-blue-800': selected},
                     {'bg-white text-blue-800 hover:bg-yellow-300': !selected}
                 )} 

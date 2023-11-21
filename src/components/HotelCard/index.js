@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import cn from "classnames";
+import StartRating from "./StarRating";
 
 const HotelCard = ({name, image, location, rating, price, description})=>{
     const [showDescription, setShowDescription] = useState(false);
@@ -10,7 +11,7 @@ const HotelCard = ({name, image, location, rating, price, description})=>{
                 <div className="relative">
                     <Image src={image.src} alt={image.alt} width={494} height={277}/>
                     <button 
-                        class={cn('absolute bottom-0 bg-white p-1 text-blue-800', {})}
+                        className={cn('absolute bottom-0 bg-white p-1 text-blue-800', {})}
                         onClick={()=>setShowDescription(!showDescription)}
                         type='button'
                     >
@@ -20,9 +21,7 @@ const HotelCard = ({name, image, location, rating, price, description})=>{
                 <div className="flex flex-col p-2">
                     <h1 className="text-lg font-semibold text-blue-800">{name}</h1>
                     <span className="mb-2 font-light">{location}</span>
-                    <div>
-                        {[...Array(rating)].map((e, i) => <span key={i}>⭐</span>)}
-                    </div>
+                    <StartRating rating={rating}/>
                     {/* not hooked up, missing type */}
                     <button className="px-2 py-1 mt-2 mt-6 text-blue-800 bg-yellow-300 rounded-md w-52">
                         <span className="text-sm">Book Now</span>

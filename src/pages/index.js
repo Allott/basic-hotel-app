@@ -22,7 +22,7 @@ export default function Home() {
           fill
         />
       </div>
-      <div className='flex flex-col justify-center max-h-screen p-16 md:space-x-10 md:flex-row'>
+      <div className='flex flex-col justify-center max-h-screen p-8 lg:p-16 lg:justify-center lg:space-x-10 lg:flex-row'>
         <div className='flex flex-col mb-5 space-y-1'>
           <SortButton 
             label='sort alphabetically'
