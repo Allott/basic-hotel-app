@@ -1,28 +1,17 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import Image from 'next/image'
 import hotelData from '../constants/hotel-data.json'
 import HotelCard from '@/components/HotelCard'
 import SortButton from '@/components/SortButton'
+import sortHotels from '@/utils/sortHotels'
  
 export default function Home() {
-
   const [sortValue, setSortValue] = useState({
     sortName: 'name',
     ascending: true,
   })
 
-  const sortedHotels = hotelData.sort((a, b) => {
-      const { sortName } = sortValue;
-      const aValue = a[sortName];
-      const bValue = b[sortName];
-      if (aValue < bValue) {
-          return sortValue.ascending ? -1 : 1;
-      }
-      if (aValue > bValue) {
-          return sortValue.ascending ? 1 : -1;
-      }
-      return 0;
-  })
+  const sortedHotels = useMemo(() => sortHotels(hotelData, sortValue), [sortValue])
 
   return (
     <main>
