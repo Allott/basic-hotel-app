@@ -33,8 +33,8 @@ export default function Home() {
           fill
         />
       </div>
-      <div className='flex flex-col justify-between max-h-screen p-16 md:space-x-10 md:flex-row'>
-        <div className='flex flex-col space-y-1'>
+      <div className='flex flex-col justify-center max-h-screen p-16 sm:space-x-10 sm:flex-row'>
+        <div className='flex flex-col mb-5 space-y-1'>
           <SortButton 
             label='sort alphabetically'
             sortName='name'
@@ -52,6 +52,7 @@ export default function Home() {
             sortName='rating'
             sortValue={sortValue}
             setSortValue={setSortValue}
+            startAscending={false}
           />
         </div>
        <div className='flex flex-col max-h-full space-y-5 overflow-scroll'>

@@ -1,18 +1,18 @@
 import cn from 'classnames';
 
-const SortButton = ({label, sortName, sortValue, setSortValue}) => {
+const SortButton = ({label, sortName, sortValue, setSortValue, startAscending = true}) => {
     const selected = sortName === sortValue.sortName
     const clickButton = () => {
         setSortValue({
             sortName: sortName,
-            ascending: !selected || !sortValue.ascending,
+            ascending: selected ? !sortValue.ascending : startAscending,
         });
     }
     return (
         <button 
             className={
                 cn(
-                    'p-2', 
+                    'p-2 w-full sm:w-52', 
                     {'bg-blue-800 text-white': selected},
                     {'bg-white text-blue-800': !selected}
                 )} 

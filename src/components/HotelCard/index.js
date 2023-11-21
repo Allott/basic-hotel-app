@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const HotelCard = ({name, image, location, rating})=>{
     return(
-        <div className="flex flex-col justify-between bg-white md:flex-row">
+        <div className="flex flex-col justify-between bg-white sm:flex-row">
             <div className="relative">
                 <Image src={image.src} alt={image.alt} width={494} height={277}/>
             </div>
